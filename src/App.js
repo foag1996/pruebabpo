@@ -54,6 +54,8 @@ function App() {
 
         </nav>
 
+        <hr/>
+
         <Switch>
 
           <Route path="/" exact>
@@ -79,6 +81,7 @@ function App() {
         </Switch>
 
       </div>
+
 
     </Router>
   );
