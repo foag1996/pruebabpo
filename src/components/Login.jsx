@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import { useHistory } from 'react-router-dom';
 
 
-export default function Login() {
+export default function Login(props) {
 
     const history = useHistory();
 
@@ -23,6 +23,7 @@ export default function Login() {
         .then((resp) => {
           ///ingreso
           if (resp.user.emailVerified) {
+              
             history.push("/Post")
             //comprobar Mail
             //SweerAlert de registro exitoso
@@ -31,6 +32,9 @@ export default function Login() {
                 'Has ingresado satifactoriamente',
                 'success'
               )
+
+            props.setIslog(true)
+            
             console.log("email verificado")
           }else{
             ///no esta verificado

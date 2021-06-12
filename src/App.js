@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState}  from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +14,13 @@ import {User} from './components/User';
 import logo1 from './img/logo1.png';
 
 function App() {
+
+  ///crear el hook e iniciar en false
+  const [isLog, setIslog] = useState(false)
+  
+
+
+
   return (
     <Router>
 
@@ -40,9 +47,14 @@ function App() {
                     <NavLink to="/" className="btn btn-dark">Home</NavLink>
                   </li>
 
-                  <li className="nav-item">
-                    <Link to="/post" className="btn btn-dark">Post</Link>
-                  </li>
+                  {
+                     //mostrar si esta logueado
+                    isLog &&
+                    <li class="nav-item">
+                      <Link to="/post" className="btn btn-dark">Post</Link>
+                    </li>
+                  }
+
                   
                   <li className="nav-item dropdown">
 
@@ -77,7 +89,7 @@ function App() {
             <User />
           </Route>
 
-          <Route path="/login">
+          <Route path="/login" component={()=><Login setIslog={setIslog}/>} >
             <Login />
           </Route>
 
