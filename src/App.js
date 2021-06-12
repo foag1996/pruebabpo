@@ -89,8 +89,10 @@ function App() {
             <User />
           </Route>
 
-          <Route path="/login" component={()=><Login setIslog={setIslog}/>} >
-            <Login />
+          <Route path="/login" 
+          component={()=><Login 
+          setIslog={setIslog}/>} >
+            
           </Route>
 
           <Route path="/registro">
