@@ -18,31 +18,31 @@ function App() {
 
       <div className="container mt-5">
         
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
-          <div class="container-fluid">
+          <div className="container-fluid">
 
-              <a class="navbar-brand" href="/">People BPO</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+              <a className="navbar-brand" href="/">People BPO</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
                 </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+              <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul className="navbar-nav">
 
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <NavLink to="/" className="btn btn-dark">Inicio</NavLink>
                   </li>
 
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <Link to="/post" className="btn btn-dark">Post</Link>
                   </li>
                   
-                  <li class="nav-item dropdown">
+                  <li className="nav-item dropdown">
 
                     <Link to="/user" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</Link>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/login">Login</a></li>
-                      <li><a class="dropdown-item" href="/registro">Registro</a></li>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a className="dropdown-item" href="/login">Login</a></li>
+                      <li><a className="dropdown-item" href="/registro">Registro</a></li>
                     </ul>
 
                   </li>

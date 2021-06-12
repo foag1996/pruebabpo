@@ -1,17 +1,39 @@
 import React, { Fragment } from 'react'
 import { useForm } from 'react-hook-form'
+import firebase from '../Config/Firebase';
 
 export const Registro = () => {
 
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors }
       } = useForm();
     
       const onSubmit = (data) => {
-        alert(JSON.stringify(data));
+       // alert(JSON.stringify(data.Email));
+       console.log(data.Email)
+
+       firebase.auth.createUserWithEmailAndPassword(data.Email, data.Contraseña)
+       .then(res=>{
+          //Usuario dado de alta.
+         console.log("Auth res", res)
+          firebase.db.collection('users').add({
+             Correo: data.Email,
+             //Grabar todo lo que quieras
+          })
+          .then(resp=>{
+             /// que hacer despues de grabar
+             console.log("Firebase res", resp)
+           })
+          .catch(e=>{
+            ///Errores de grabado en la bd Firestore
+             console.log('error: ', e)
+           })
+       }).catch(e=>{
+         ///Manejo de errores de Registro de Autenticacion
+          console.log('error: ', e)
+       })
       };
 
     return (
@@ -22,9 +44,9 @@ export const Registro = () => {
               
             <form onSubmit={handleSubmit(onSubmit)}>
             
-                <div class="col-md-3">
+                <div className="col-md-3">
 
-                    <label  class="form-label">Email</label>
+                    <label  className="form-label">Email</label>
                     <input 
                     name="email"
                     placeholder="Ingresar Email"
@@ -39,9 +61,9 @@ export const Registro = () => {
 
                 </div>
 
-                <div class="col-md-3">
+                <div className="col-md-3">
 
-                    <label  class="form-label">Contraseña</label>
+                    <label  className="form-label">Contraseña</label>
                     <input 
                     name="contraseña"
                     className="form-control my-2"
@@ -59,7 +81,7 @@ export const Registro = () => {
                         <p>La contraseña debe tener como minimo 6 caracteres</p>
                      )}
 
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button  type="submit" className="btn btn-primary">Registrar</button>
                 
 
                 </div>

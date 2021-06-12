@@ -5,7 +5,6 @@ export default function Login() {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors }
       } = useForm();
     
@@ -23,9 +22,9 @@ export default function Login() {
               
             <form onSubmit={handleSubmit(onSubmit)}>
             
-                <div class="col-md-3">
+                <div className="col-md-3">
 
-                    <label  class="form-label">Email</label>
+                    <label  className="form-label">Email</label>
                     <input 
                     name="email"
                     placeholder="Ingresar Email"
@@ -40,9 +39,9 @@ export default function Login() {
 
                 </div>
 
-                <div class="col-md-3">
+                <div className="col-md-3">
 
-                    <label  class="form-label">Contraseña</label>
+                    <label  className="form-label">Contraseña</label>
                     <input 
                     name="contraseña"
                     className="form-control my-2"
@@ -57,7 +56,7 @@ export default function Login() {
                     />
                      {errors?.Contraseña?.type === "required" && <p>La Contraseñas es obligatoria</p>}
 
-                <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                <button type="submit" className="btn btn-primary">Iniciar sesion</button>
                 
 
                 </div>
