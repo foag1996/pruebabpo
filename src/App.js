@@ -11,6 +11,7 @@ import Login from './components/Login';
 import {Post} from './components/Post';
 import { Registro } from './components/Registro';
 import {User} from './components/User';
+import logo1 from './img/logo1.png';
 
 function App() {
   return (
@@ -22,7 +23,13 @@ function App() {
 
           <div className="container-fluid">
 
-              <a className="navbar-brand" href="/">People BPO</a>
+              <a className="navbar-brand" href="/">
+              <img src={logo1} 
+              width="180"
+              height="80"
+              className="d-inline-block align-top"
+                alt="./img/logo1.png" />
+                </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
