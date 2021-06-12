@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useForm } from 'react-hook-form'
-import firebase from '../Config/Firebase';
+import firebase from '../Config/Firebase'
+import Swal from 'sweetalert2'
 
 export const Registro = () => {
 
@@ -16,6 +17,10 @@ export const Registro = () => {
 
        firebase.auth.createUserWithEmailAndPassword(data.Email, data.Contraseña)
        .then(res=>{
+
+          //enviar correo
+          res.user.sendEmailVerification();
+          
           //Usuario dado de alta.
          console.log("Auth res", res)
           firebase.db.collection('users').add({
@@ -26,6 +31,11 @@ export const Registro = () => {
              /// que hacer despues de grabar
              console.log("Firebase res", resp)
            })
+           Swal.fire(
+            'Felicidades!!!',
+            'Te has registrado',
+            'success'
+          )
           .catch(e=>{
             ///Errores de grabado en la bd Firestore
              console.log('error: ', e)
@@ -34,6 +44,7 @@ export const Registro = () => {
          ///Manejo de errores de Registro de Autenticacion
           console.log('error: ', e)
        })
+       
       };
 
     return (
@@ -81,7 +92,7 @@ export const Registro = () => {
                         <p>La contraseña debe tener como minimo 6 caracteres</p>
                      )}
 
-                <button  type="submit" className="btn btn-primary">Registrar</button>
+                <button  type="submit" className="btn btn-primary"><a href="/Home"></a>Registrar</button>
                 
 
                 </div>
