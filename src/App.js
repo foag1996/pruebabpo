@@ -30,7 +30,7 @@ function App() {
                 <ul className="navbar-nav">
 
                   <li className="nav-item">
-                    <NavLink to="/" className="btn btn-dark">Inicio</NavLink>
+                    <NavLink to="/" className="btn btn-dark">Home</NavLink>
                   </li>
 
                   <li className="nav-item">

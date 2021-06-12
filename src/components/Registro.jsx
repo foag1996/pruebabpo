@@ -2,8 +2,11 @@ import React, { Fragment } from 'react'
 import { useForm } from 'react-hook-form'
 import firebase from '../Config/Firebase'
 import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom';
 
 export const Registro = () => {
+
+    const history = useHistory();
 
     const {
         register,
@@ -20,7 +23,7 @@ export const Registro = () => {
 
           //enviar correo
           res.user.sendEmailVerification();
-          
+
           //Usuario dado de alta.
          console.log("Auth res", res)
           firebase.db.collection('users').add({
@@ -31,6 +34,10 @@ export const Registro = () => {
              /// que hacer despues de grabar
              console.log("Firebase res", resp)
            })
+           history.push("/Login")
+
+
+           ///SweerAlert de registro exitoso
            Swal.fire(
             'Felicidades!!!',
             'Te has registrado',
